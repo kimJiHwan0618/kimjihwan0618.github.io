@@ -20,7 +20,7 @@ title                    : "호도로그"
 title_separator          : "|"
 subtitle                 : "화려하진 않지만 꾸준히ㆍ부지런하게"
 name                     : "HodoLog"
-description              : "호도로그의 블로그입니다."
+description              : "호도의 개발기록 블로그입니다."
 url                      : "https://kimjihwan0618.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -96,17 +96,17 @@ social:
 
 # Analytics
 analytics:
-  provider               : false # false (default), "google", "google-universal", "google-gtag", "custom"
+  provider               : "google-gtag" # false (default), "google", "google-universal", "google-gtag", "custom"
   google:
-    tracking_id          :
-    anonymize_ip         : # true, false (default)
+    tracking_id          : "G-6KBSV2E35G"
+    anonymize_ip         : false # true,  (default)
 
 
 # Site Author
 author:
   name             : "HodoLog"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "호도로그의 블로그입니다."
+  bio              : "호도의 개발기록 블로그입니다."
   location         : "South Korea"
   email            : "wlghks0618@kakao.com"
   links:
