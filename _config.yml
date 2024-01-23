@@ -25,7 +25,7 @@ url: "https://kimjihwan0618.github.io"
 baseurl: # the subpath of your site, e.g. "/blog"
 repository: # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser: # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-logo: "/assets/images/hodolog.jpg"
+logo: # "/assets/images/hodolog.jpg"
 masthead_title: # overrides the website title displayed in the masthead, use " " for no title
 breadcrumbs: true
 words_per_minute: 200
@@ -104,7 +104,7 @@ analytics:
 # Site Author
 author:
   name: "HodoLog"
-  avatar: # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar: "/assets/images/hodolog.jpg"
   bio: "호도의 개발기록 블로그입니다."
   location: "South Korea"
   email: "wlghks0618@kakao.com"
@@ -275,11 +275,14 @@ defaults:
       type: posts
     values:
       layout: single
-      author_profile: true
+      author_profile: false
       read_time: true
       comments: true
       share: true
       related: true
       show_date: true
+      toc: true
+      toc_sticky: true
+      toc_label: 목차
 
 date_format: "%Y-%m-%d"
