@@ -70,7 +70,7 @@ console.log(b); // 2
 console.log(c); // 3
 ```
 ```javascript
-const [d = 4] = numbers; // 원소 없을시 기본값 설정
+const [a, b, c, d = 4] = numbers; // 원소 없을시 기본값 설정
 console.log(d) // 4
 ```
 <br />
