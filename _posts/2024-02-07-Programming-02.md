@@ -1,0 +1,107 @@
+---
+layout: single
+title: "java에서 json 데이터 다루기(org.json)"
+categories: "Programming"
+tag: ["javascript", "org.json", "maven"]
+typora-root-url: ../
+---
+
+<br />
+# JSON 이란❓
+<br />
+Javascript Object Notation(JSON) 은 자바스크립트 객체 표기법으로 키(key)와 값(value)의 쌍으로 이루어져있는 구조입니다.
+그리고 Key와 Value 사이에는 콜론(:)이 들어간다.
+
+옛날에는 <code>xml</code>도 메타데이터를 정의할때 많이 쓰였는데, 요즘에는 개발하면은 <code>xml</code> 보다는 편이성, 가독성 등 여러 이유 등으로 <code>JSON</code> 데이터를 많이 쓰는것을 볼수있다.
+
+다음은 JSON 데이터의 예시이다.
+
+```javascript
+// ex.1
+{ name : "홍길동"},
+// ex.2
+{ name : "홍길동", age: 25, hobbies : ["축구", "농구", "배구"]}
+```
+
+<br />
+# java에서 json 다루기❗
+<br />
+프론트 개발 환경은 <code>javascript</code>로 되있는 경우가 많다.(<code>vue</code>, <code>react</code> .. 등등) <code>javascript</code> 개발 환경에서는 <code>json</code> 데이터를 다루는 일이 별 어려움이 없지만, <code>java</code> 개발 환경에서는 외부 라이브러리를 사용해야 가능하다.
+
+나의 경우에는 <code>org.json</code> 라이브러리를 사용했다.
+
+## 1️⃣ 라이브러리 pom.xml 추가
+
+<br />
+<code>maven</code>으로 되있는 <code>java</code> 프로젝트는 <code>pom.xml</code>에 사용할 라이브러리를 선언한다. <code>org.json</code> 라이브러리 의존성을 아래와 같이 추가해준다.
+
+```xml
+<dependency>
+    <groupId>org.json</groupId>
+    <artifactId>json</artifactId>
+    <version>20220924</version>
+</dependency>
+```
+
+<code>org.json</code> 버전 리스트는 maven 공식 레퍼지토리에서 확인할 수 있다. 나의경우에는 <code>20220924</code> 버전을 사용하였다.
+
+<img src="/images/2024-01-31-backend-02/01.png" alt="backend-02-01" style="zoom: 50%;" />
+
+**[https://mvnrepository.com/artifact/org.json/json](https://mvnrepository.com/artifact/org.json/json){:target="\_blank"}**
+
+## 2️⃣ java 파일 JSONObject import
+
+<br/>
+기본적인 json 구조의 데이터를 다루려면 <code>org.json</code> 에서 <code>JSONObject</code> 클래스를 사용한다.
+아래는 <code>json</code> 파일을 가져와서 변수에 저장하고 출력하는 예제이다.
+```java
+import org.json.JSONObject;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+public class TestCord {
+public static void main(String[] args) {
+String jsonFilePath = "실제 json 파일경로/example.json";
+String jsonString = new String(Files.readAllBytes(Paths.get(jsonFilePath)));
+JSONObject exampleJson = new JSONObject(jsonString);
+System.out.print(exampleJson);
+}
+}
+
+````
+
+## 3️⃣ JSONObject get 메서드
+<code>javascript</code> 에서 데이터를 다룰때와 큰 차이점 또하나는 <code>javascript</code>에서는 <code>Object.key</code> 또는 <code>Object[key]</code>와 같이 데이터를 가져오는데, <code>java</code>에서는 데이터 타입별로 다른 <code>get</code> 메서드를 사용해야한다. <code>java</code> 와 <code>javascript</code>에서 객체를 선언하고 출력하는 예제이다.
+
+```javascript
+const people = {
+  name : "홍길동",
+  age : 25,
+  hobbies : ["축구", "농구", "배구"]
+}
+
+console.log(json.name);
+console.log(json.age);
+console.log(json.hobbies);
+````
+
+```java
+import org.json.JSONObject;
+
+public class TestCord {
+  public static void main(String[] args) {
+    JSONArray hobbies = new JSONArray();
+        hobbies.put("축구");
+        hobbies.put("농구");
+        hobbies.put("배구");
+    JSONObject people = new JSONObject()
+              .put("name", "홍길동");
+              .put("age", 25);
+              .put("hobbies", hobbies);
+
+    System.out.print(people.getString("name"));
+    System.out.print(people.getInt("age"));
+    System.out.print(people.getJSONArray("hobbies"));
+  }
+}
+```
