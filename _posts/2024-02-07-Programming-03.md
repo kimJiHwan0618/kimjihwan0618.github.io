@@ -170,10 +170,8 @@ String regex = keyword + "\\b(.*?)\\.";
 </tbody>
 </table>
 수량자와 선택, 그룹을 제외한 메타 문자는 결국 하나의 문자 조건을 나타냅니다.모든 수량자는 {n, m} 방식으로 바꾸어서 정의할 수도 있습니다. <br />
-(비추합니다. 왜냐하면 *, +, ?를 사용하는 것이 더 직관적이기 때문입니다.)
 ### 특수 기호(Special Character)
 하나의 특수 기호를 이용해서 문자, 숫자, 또는 공백을 각각 대신할 수 있습니다. 그리고 문자열의 시작이나 끝, 그리고 단어의 시작이나 끝 등 출현 위치에 대한 규칙을 정할 수 있습니다. <br />
-(처음 정규식을 접하시는 분은 굵은 글씨로 된 \d, \s, \w만 아셔도 충분합니다.)
 <table style="border-collapse: collapse; width: 100%;" border="1" data-ke-style="style14" data-ke-align="alignLeft">
 <tbody>
 <tr style="height: 40px;">
