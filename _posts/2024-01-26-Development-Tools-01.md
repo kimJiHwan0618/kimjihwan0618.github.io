@@ -6,7 +6,7 @@ tag: ["react", "npm", "nvm"]
 typora-root-url: ../
 ---
 
-## 1. nvm으로 node.js 버전과리
+## 1. nvm으로 node.js 버전관리
 
 > nvm이란??
 > {: .notice--info}

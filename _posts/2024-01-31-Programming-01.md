@@ -59,13 +59,13 @@ import org.json.JSONObject;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-public class TestCord {
-public static void main(String[] args) {
-String jsonFilePath = "실제 json 파일경로/example.json";
-String jsonString = new String(Files.readAllBytes(Paths.get(jsonFilePath)));
-JSONObject exampleJson = new JSONObject(jsonString);
-System.out.print(exampleJson);
-}
+public class TestCode {
+	public static void main(String[] args) {
+		String jsonFilePath = "실제 json 파일경로/example.json";
+		String jsonString = new String(Files.readAllBytes(Paths.get(jsonFilePath)));
+		JSONObject exampleJson = new JSONObject(jsonString);
+		System.out.print(exampleJson);
+	}
 }
 
 ````
@@ -88,7 +88,7 @@ console.log(json.hobbies);
 ```java
 import org.json.JSONObject;
 
-public class TestCord {
+public class TestCode {
   public static void main(String[] args) {
     JSONArray hobbies = new JSONArray();
         hobbies.put("축구");
