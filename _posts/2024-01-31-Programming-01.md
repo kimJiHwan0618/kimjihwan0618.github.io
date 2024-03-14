@@ -1,13 +1,13 @@
 ---
 layout: single
-title: "java에서 json 데이터 다루기(org.json)"
+title: "[Java] json 데이터 다루기(org.json)"
 categories: "Programming"
 tag: ["java", "javascript", "org.json", "maven"]
 typora-root-url: ../
 ---
 
 <br />
-# JSON 이란❓
+# JSON 이란 ❓
 <br />
 Javascript Object Notation(JSON) 은 자바스크립트 객체 표기법으로 키(key)와 값(value)의 쌍으로 이루어져있는 구조입니다.
 그리고 Key와 Value 사이에는 콜론(:)이 들어간다.
@@ -60,12 +60,12 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class TestCode {
-	public static void main(String[] args) {
-		String jsonFilePath = "실제 json 파일경로/example.json";
-		String jsonString = new String(Files.readAllBytes(Paths.get(jsonFilePath)));
-		JSONObject exampleJson = new JSONObject(jsonString);
-		System.out.print(exampleJson);
-	}
+public static void main(String[] args) {
+String jsonFilePath = "실제 json 파일경로/example.json";
+String jsonString = new String(Files.readAllBytes(Paths.get(jsonFilePath)));
+JSONObject exampleJson = new JSONObject(jsonString);
+System.out.print(exampleJson);
+}
 }
 
 ````

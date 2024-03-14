@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "npm 패키지와 node.js 버전 호환성 맞추기"
+title: "[Node] NVM으로 Node.js 버전관리"
 categories: "Development-Tools"
 tag: ["react", "npm", "nvm"]
 typora-root-url: ../

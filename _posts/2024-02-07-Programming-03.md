@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "정규표현식 개념과 활용예제"
+title: "[정규식] 개념과 활용예제"
 categories: "Programming"
 tag: ["regex"]
 typora-root-url: ../

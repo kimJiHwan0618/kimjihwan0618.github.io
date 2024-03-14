@@ -1,0 +1,94 @@
+---
+layout: single
+title: "[React] useRef 훅 활용예제 정리"
+categories: "Web-Development"
+tag: ["react", "front-end", "useRef"]
+typora-root-url: ../
+---
+
+<br />
+# 01. useRef란 ❓
+<code>useRef</code>훅은 <code>React Hook</code> 중 하나입니다. 이 Hook이 반환하는 객체(ref object)는 <code>.current</code>프로퍼티를 통해 접근할 수 있는데, 이 프로퍼티는 인자로 전달된 초기값 <code>initialValue</code>으로 설정됩니다. 가장 큰 특징은 컴포넌트가 렌더링될 때마다 항상 동일한 ref 객체를 제공한다는 것입니다. 
+<br />
+
+# 02. 적용 사례
+
+## DOM 요소에 접근
+
+<code>useRef</code>훅을 사용하면 <code>DOM</code> 요소를 지정해서 조작할 수 있습니다. 바닐라 js 에서 <code>querySelector</code> 과 비슷하다고 생각하시면 됩니다. 개인적으로는 <code>React</code> 입문시기에는 <code>DOM</code> 조작 용도로 <code>useRef</code>훅을 많이 썻습니다. 아래는 예제코드입니다.
+
+```javascript
+import { useRef } from "react";
+
+const ExampleComponent = () => {
+  const divRef = useRef(null); // 01. useRef를 사용하여 DOM 요소에 접근할 ref 생성
+  const handleClick = () => {
+    divRef.current.style.backgroundColor = "red";
+    // 03. 버튼 클릭 시, div 요소의 배경색을 빨간색으로 변경
+  };
+  return (
+    <>
+      <button onClick={handleClick}>Change Color</button>
+      <div ref={divRef} />
+      {/* 02. useRef로 생성한 ref를 div 요소에 할당 */}
+    </>
+  );
+};
+
+export default ExampleComponent;
+```
+
+위처럼 특정 핸들러 함수나 이벤트가 발생했을때 DOM 요소를 조작하는 용도로 쓸 수 있습니다.
+
+## 저장공간 (변수 관리)
+
+보통 <code>React</code> 프로그래밍을 할때 변수를 선언할때에는, <code>useState</code> 훅을 통한 상태관리가 일반적입니다.
+<br />
+<code>useState</code>를 사용하면, 해당 변수를 사용하는 구간이 아님에도 컴포넌트 내 전체가 리렌더링 됩니다. 이건 <code>React</code>의 기본 동작입니다. 하지만 <code>useRef</code>를 사용하면 컴포넌트 최적화 방법의 하나로 쓰일 수 있습니다. 아래는 예제 코드 입니다.
+
+```javascript
+import { useState } from "react";
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  const increment = () => {
+    setCount(count + 1);
+  };
+
+  return (
+    // count 변할때마다 <div> 전체 리렌더링
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={increment}>Increment</button>
+    </div>
+  );
+}
+
+export default Counter;
+```
+
+위 예제에서 <code>useState를</code> 사용하여 <code>count</code>상태를 관리하고 있습니다. 버튼을 클릭할 때마다 <code>increment</code> 함수를 통해 <code>count</code> 상태가 업데이트되면서 컴포넌트가 전체적으로 리렌더링됩니다.
+
+```javascript
+import { useRef } from "react";
+
+function Counter() {
+  const countRef = useRef(0);
+
+  const increment = () => {
+    countRef.current += 1;
+  };
+
+  return (
+    <div>
+      <p>Count: {countRef.current}</p> // 리렌더링 (x) 해당 상태값만 반영
+      <button onClick={increment}>Increment</button>
+    </div>
+  );
+}
+
+export default Counter;
+```
+
+<code>useRef</code>를 사용하면 전체를 리렌더링 하지 않고 컴포넌트에서 상태값에 대한 부분만 업데이트 처리 할 수 있습니다.

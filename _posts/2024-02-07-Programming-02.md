@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "알아두면 편리한 JS 연산자와 표현식"
+title: "[Js] 알아두면 편리한 연산자와 표현식"
 categories: "Programming"
 tag: ["javascript"]
 typora-root-url: ../

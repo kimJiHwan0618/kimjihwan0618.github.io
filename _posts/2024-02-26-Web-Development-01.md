@@ -1,13 +1,13 @@
 ---
 layout: single
-title: "React memo를 통한 컴포넌트 최적화"
+title: "[React] memo를 통한 컴포넌트 최적화"
 categories: "Web-Development"
 tag: ["react", "front-end", "memo"]
 typora-root-url: ../
 ---
 
 <br />
-# 01. React memo란❓
+# 01. React memo란 ❓
 <code>React.memo</code>란 리액트의 성능 최적화 기법 중 하나로, 함수형 컴포넌트의 불필요한 리렌더링을 방지하기 위해 사용됩니다. 이는 주로 순수 컴포넌트(pure component)에 유용하며, 컴포넌트가 동일한 props로 동일한 결과를 렌더링할 것이라는 예측 하에 작동합니다. 포인트는 컴포넌트의 불필요한 리렌더링 방지입니다. 
 <br />
 # 02. 적용 사례
@@ -21,22 +21,23 @@ import { useState } from 'react'
 
 const ParentComponent = () => {
 
-  const [data, setData] = useState(null);
-  const [props1, setProps1] = useState("props1");
-  const [props2, setProps2] = useState("props2");
+const [data, setData] = useState(null);
+const [props1, setProps1] = useState("props1");
+const [props2, setProps2] = useState("props2");
 
-  const handleWebSocketData = (param) => {
-    setData(param)
-  }
+const handleWebSocketData = (param) => {
+setData(param)
+}
 
-  return (
-    <Modal props1={props1} props2={props2} />
-    <ChildComponent handleWebSocketData={handleWebSocketData}/>
-  )
+return (
+<Modal props1={props1} props2={props2} />
+<ChildComponent handleWebSocketData={handleWebSocketData}/>
+)
 }
 
 export default ParentComponent;
-```
+
+````
 실제 문제가 되는 부분만 예제로 가져왔습니다. 코드를 보면 <code>ChildComponent</code> 컴포넌트에 <code>handleWebSocketData</code> 라는 함수가 바인딩 되있습니다.
 이 함수는 <code>ChildComponent</code>에서 웹소켓 <code>onMessage</code> 이벤트가 발생할때마다 <code>ParentComponent</code>의 <code>useState</code>값을 업데이트 해줍니다.
 이 과정에서 <code>Modal</code> 컴포넌트는 관련이 없습니다. 하지만 기본적으로 <code>React</code>는 컴포넌트의 <code>useState</code>값이 업데이트 될때마다, 컴포넌트 전체가 리렌더링됩니다. 위 예제에서 <code>Modal</code> 컴포넌트에는 사용자 인풋값을 받는 항목이 있는데 웹소켓 <code>onMessage</code> 이벤트가 발생할때마다 인풋값이 초기화 되는 현상을 발견했습니다.
@@ -60,12 +61,46 @@ const Modal = ({props1, props2}) => {
 }
 
 export default memo(Modal); // 자식컴포넌트를 React.memo로 감사준다.
-```
+````
+
 위와같이 자식컴포넌트를 <code>React.memo</code>로 감싸주면, 컴포넌트에 프롭스로 전달된 <code>props1</code>, <code>props2</code> 값이 바뀌지않는한 해당 자식 컴포넌트는 부모와 상관없이 리렌더링되지않는다. <code>React.memo</code>는 일명 <code>HOC</code>(Higher-Order Component, HOC) 입니다. <code>props</code>의 이전 값과 새로운 값을 비교해서, 실제로 변경되지 않았다면 리렌더링을 스킵하고 이젠 렌더링 된 결과를 재사용 합니다. 어린식으로 <code>React.memo</code>를 잘 사용하면 컴포넌트의 불필요한 리렌더링 줄이고 성능 최적하에 도움을 줄 수 있습니다.
 <br />
+
 # 03. 사용시 주의점❗
+
 ## 불필요할 사용 자제
+
 <code>React.memo</code>를 상황에 맞게 잘 사용한다면 성능 최적화에 좋겠지만, <code>React.memo</code>로 컴포넌트를 묶는거 자체가 일반 컴포넌트보다는 메모리 비용이 더 들기 때문에, 굳이 필요하지 않는 경우에도 계속해서 생성한다면 불필요한 메모리가 늘어날 것입니다.
 <br />
+
 ## 깊은 객체 비교시 주의
+
 <code>React.memo</code>는 기본적으로 얕은 비교(shallow comparison)를 수행합니다. 이는 객체나 배열과 같은 참조 타입의 최상위 레벨만 비교한다는 것을 의미합니다. 따라서, 객체나 배열 내부의 값이 변경되더라도 최상위 참조가 같으면 변경사항을 감지하지 못할 수 있습니다. 이러한 경우, 커스텀 비교 함수를 <code>React.memo</code>의 두 번째 인자로 제공하여 깊은 비교를 수행하거나, 상태 관리 전략을 조정하여 해결할 수 있습니다
+
+```javascript
+import { useState, useEffect } from "react";
+
+function Counter() {
+  const [count, setCount] = useState(0);
+  const [printNumber, setPrintNumber] = useState(0);
+
+  const handleClick = () => {
+    setPrintNumber(count);
+  };
+
+  useEffect(() => {
+    setTimeout(() => {
+      setCount((prevCount) => prevCount + 1);
+    }, 1000);
+  }, []);
+
+  return (
+    <div>
+      <p>Count: {printNumber}</p>
+      <button onClick={handleClick}>Increment</button>
+    </div>
+  );
+}
+
+export default Counter;
+```
