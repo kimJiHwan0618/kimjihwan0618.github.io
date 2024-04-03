@@ -2,7 +2,9 @@
    STYLE RESETS
    ========================================================================== */
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
 html {
   /* apply a natural box layout model to all elements */
@@ -28,7 +30,9 @@ html {
 
 /* Remove margin */
 
-body { margin: 0; }
+body {
+  margin: 0;
+}
 
 /* Selected elements */
 
@@ -42,6 +46,20 @@ body { margin: 0; }
   background: #000;
 }
 
+.min-width th,
+.min-width td {
+  min-width: 200px;
+}
+
+th,
+td {
+  border-right: 1px solid #b6b6b6;
+  border-left: 1px solid #b6b6b6;
+  border-top: 1px solid #b6b6b6;
+  min-width: 10px;
+  box-sizing: border-box;
+  padding: 8px;
+}
 /* Display HTML5 elements in IE6-9 and FF3 */
 
 article,
@@ -147,7 +165,8 @@ input {
 }
 
 button::-moz-focus-inner,
-input::-moz-focus-inner { /* inner padding and border oddities in FF3/4*/
+input::-moz-focus-inner {
+  /* inner padding and border oddities in FF3/4*/
   padding: 0;
   border: 0;
 }
@@ -156,8 +175,8 @@ button,
 html input[type="button"], // avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio` and `video` controls
 input[type="reset"],
 input[type="submit"] {
-    -webkit-appearance: button; /* corrects inability to style clickable `input` types in iOS*/
-    cursor: pointer; /* improves usability and consistency of cursor style between image-type `input` and others*/
+  -webkit-appearance: button; /* corrects inability to style clickable `input` types in iOS*/
+  cursor: pointer; /* improves usability and consistency of cursor style between image-type `input` and others*/
 }
 
 label,
@@ -168,10 +187,11 @@ input[type="reset"],
 input[type="submit"],
 input[type="radio"],
 input[type="checkbox"] {
-    cursor: pointer; /* improves usability and consistency of cursor style between image-type `input` and others*/
+  cursor: pointer; /* improves usability and consistency of cursor style between image-type `input` and others*/
 }
 
-input[type="search"] { /* Appearance in Safari/Chrome*/
+input[type="search"] {
+  /* Appearance in Safari/Chrome*/
   box-sizing: border-box;
   -webkit-appearance: textfield;
 }
