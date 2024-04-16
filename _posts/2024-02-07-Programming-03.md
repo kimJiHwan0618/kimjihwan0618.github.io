@@ -4,6 +4,7 @@ title: "[정규식] 개념과 활용예제"
 categories: "Programming"
 tag: ["regex"]
 typora-root-url: ../
+description: 정규식 개념, 활용예제, 메타문자 정리
 ---
 
 ## 정규식 개념

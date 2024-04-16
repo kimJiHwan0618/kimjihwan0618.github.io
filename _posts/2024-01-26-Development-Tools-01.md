@@ -4,6 +4,7 @@ title: "[Node] NVM으로 Node.js 버전관리"
 categories: "Development-Tools"
 tag: ["react", "npm", "nvm"]
 typora-root-url: ../
+description: nvm 개념 설명, 설치법, 적용예제
 ---
 
 ## 1. nvm으로 node.js 버전관리

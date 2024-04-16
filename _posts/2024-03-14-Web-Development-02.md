@@ -4,6 +4,7 @@ title: "[React] useRef 훅 활용예제 정리"
 categories: "Web-Development"
 tag: ["react", "front-end", "useRef"]
 typora-root-url: ../
+description: useRef훅 활용예제정리
 ---
 
 <br />

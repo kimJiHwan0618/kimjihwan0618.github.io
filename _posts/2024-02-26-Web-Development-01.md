@@ -4,6 +4,7 @@ title: "[React] memo를 통한 컴포넌트 최적화"
 categories: "Web-Development"
 tag: ["react", "front-end", "memo"]
 typora-root-url: ../
+description: react memo 설명, 특징, 활용예제
 ---
 
 <br />

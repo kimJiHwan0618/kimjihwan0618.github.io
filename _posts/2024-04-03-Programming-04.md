@@ -4,6 +4,7 @@ title: "[Js] 자바스크립트 데이터 타입과 메모리 할당"
 categories: "Programming"
 tag: ["javascript"]
 typora-root-url: ../
+description: js 데이터 타입 메모리 할당 원리 정리
 ---
 
 <br />

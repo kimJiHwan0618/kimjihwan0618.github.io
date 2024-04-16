@@ -4,6 +4,7 @@ title: "[Js] 알아두면 편리한 연산자와 표현식"
 categories: "Programming"
 tag: ["javascript"]
 typora-root-url: ../
+description: es5 es6 js 유용한 연산자 표현식 정리
 ---
 
 <br />

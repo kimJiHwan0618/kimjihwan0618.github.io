@@ -4,6 +4,7 @@ title: "[Java] json 데이터 다루기(org.json)"
 categories: "Programming"
 tag: ["java", "javascript", "org.json", "maven"]
 typora-root-url: ../
+description: Java에서 다루는 json 데이터 설명, 필요 라이브러리
 ---
 
 <br />
