@@ -218,10 +218,12 @@ paginate_path: /page:num/
 
 # Plugins (previously gems:)
 plugins:
-  - jekyll-seo-tag
+  - jekyll-paginate
   - jekyll-sitemap
+  - jekyll-gist
   - jekyll-feed
-  # - jekyll-seo-tag
+  - jekyll-include-cache
+  - jekyll-seo-tag
 
 # mimic GitHub Pages with --safe
 whitelist:
