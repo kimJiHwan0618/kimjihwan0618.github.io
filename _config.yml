@@ -218,21 +218,9 @@ paginate_path: /page:num/
 
 # Plugins (previously gems:)
 plugins:
-  - jekyll-gist
-  - jekyll-default-layout
-  - jekyll-feed
-  - jekyll-optional-front-matter
-  - jekyll-paginate
-  - jekyll-readme-index
-  - jekyll-redirect-from
-  - jekyll-relative-links
   - jekyll-seo-tag
   - jekyll-sitemap
-  - jekyll-titles-from-headings
-  - jekyll-include-cache
-  - jekyll-last-modified-at
-  - jekyll-spaceship
-  - jekyll-mermaid
+  - jekyll-feed
   # - jekyll-seo-tag
 
 # mimic GitHub Pages with --safe
@@ -267,9 +255,9 @@ jekyll-archives:
   layouts:
     category: archive-taxonomy
     tag: archive-taxonomy
-  permalinks:
-    category: /categories/:name/
-    tag: /tags/:name/
+  # permalinks:
+  #   category: /categories/:name/
+  #   tag: /tags/:name/
 
 # HTML Compression
 # - https://jch.penibelst.de/
@@ -295,5 +283,4 @@ defaults:
       toc: true
       toc_sticky: true
       toc_label: 목차
-
 date_format: "%Y-%m-%d"
