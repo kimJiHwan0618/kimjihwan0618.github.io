@@ -1,0 +1,63 @@
+{
+  "programming": [
+    "javascript",
+    "java",
+    "python"
+  ],
+  "ide": [
+    "eclipse",
+    "vscode",
+    "sts"
+  ],
+  "webdev": {
+    "frontend": [
+      "html",
+      "css",
+      "js",
+      "react",
+      "vue"
+    ],
+    "backend": [
+      "spring",
+      "django",
+      "express"
+    ],
+    "server": [
+      "nginx",
+      "apache"
+    ]
+  },
+  "devtools": [
+    "npm",
+    "nvm",
+    "docker",
+    "maven",
+    "gradle"
+  ],
+  "os": {
+    "windows": [
+      "service",
+      "nssm",
+      ".bat"
+    ],
+    "linux": [
+      "ubuntu",
+      ".sh"
+    ]
+  },
+  "github": [
+    "gh-page",
+    "jekyll"
+  ],
+  "db": [
+    "mariadb",
+    "mongodb",
+    "redis"
+  ],
+  "cs": [],
+  "etc": [
+    "nas",
+    "aws",
+    "svn"
+  ]
+}
