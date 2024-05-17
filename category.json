@@ -32,7 +32,8 @@
     "nvm",
     "docker",
     "maven",
-    "gradle"
+    "gradle",
+    "yarn"
   ],
   "os": {
     "windows": [

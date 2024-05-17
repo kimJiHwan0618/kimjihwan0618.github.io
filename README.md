@@ -4,7 +4,7 @@
 
 ## 사이트 링크
 
-> [사이트 링크](https://kimjihwan0618.github.io)
+> [https://kimjihwan0618.github.io](https://kimjihwan0618.github.io)
 
 ## Jekyll 테마
 
@@ -22,7 +22,7 @@
     cd your-repo-name
     ```
 
-2. 의존성을 업데이트하고 설치합니다.
+2. 라이브러리를 업데이트하고 설치합니다.
     ```shell
     bundle update
     bundle install
