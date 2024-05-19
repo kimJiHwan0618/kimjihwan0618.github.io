@@ -39,6 +39,7 @@
 
   li {
     display: inline;
+    text-transform: uppercase;
   }
 
   .current {
@@ -56,6 +57,10 @@
   margin-top: 1em;
   padding-top: 1em;
   width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   ul {
     margin: 0;
@@ -89,7 +94,7 @@
 
       &.current,
       &.current.disabled {
-        color: #fff;
+        color: $background-color;
         background: $primary-color;
       }
 
@@ -243,7 +248,7 @@
         left: 0;
         bottom: 0;
         height: 4px;
-        background: $primary-color;
+        background: $highlight-color;
         width: 100%;
         -webkit-transition: $global-transition;
         transition: $global-transition;
@@ -417,10 +422,6 @@
       transform: rotate(0);
     }
 
-    ul {
-      margin-bottom: 1em;
-    }
-
     a {
       display: block;
       padding: 0.25em 0;
@@ -439,7 +440,7 @@
 
 .nav__list .nav__items {
   margin: 0;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
 
   a {
     color: inherit;
@@ -482,21 +483,25 @@
 
 .nav__title {
   margin: 0;
-  padding: 0.5rem 0.75rem;
+  padding: 0.5rem 0.75rem 0.85em 0em;
   font-family: $sans-serif-narrow;
   font-size: $type-size-5;
   font-weight: bold;
+  opacity: 0.9;
+
+  i {
+    margin-right: 6px;
+  }
 }
 
 .nav__sub-title {
   display: block;
-  margin: 0.5rem 0;
+  margin-top: 0.5rem;
   padding: 0.25rem 0;
   font-family: $sans-serif-narrow;
   font-size: $type-size-6;
-  font-weight: bold;
+  font-weight: 800;
   text-transform: uppercase;
-  border-bottom: 1px solid $border-color;
 }
 
 /*
@@ -505,25 +510,34 @@
 
 .toc {
   font-family: $sans-serif-narrow;
-  color: $gray;
+  color: $text-color;
   background-color: $background-color;
-  border: 1px solid $border-color;
   border-radius: $border-radius;
-  -webkit-box-shadow: $box-shadow;
-  box-shadow: $box-shadow;
 
   .nav__title {
-    color: #fff;
-    font-size: $type-size-6;
-    background: $primary-color;
-    border-top-left-radius: $border-radius;
-    border-top-right-radius: $border-radius;
+    font-size: 0.8em;
   }
 
   // Scrollspy marks toc items as .active when they are in focus
   .active a {
-    @include yiq-contrasted($active-color);
+    color: $highlight-color;
+    font-weight: 700;
+    // @include yiq-contrasted($active-color);
   }
+}
+
+.toc__wrap {
+  position: relative;
+  padding-left: 10px;
+}
+
+.toc__line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 4px;
+  border-left: 1.5px solid $border-color;
+  margin: $type-size-7 0;
 }
 
 .toc__menu {
@@ -543,7 +557,6 @@
     color: $muted-text-color;
     font-weight: bold;
     line-height: 1.5;
-    border-bottom: 1px solid $border-color;
 
     &:hover {
       color: $text-color;
@@ -568,6 +581,14 @@
   }
 
   li ul li ul li ul li ul li ul > li a {
-    padding-left: 3.25rem
+    padding-left: 3.25rem;
   }
+}
+
+.fa-moon::before {
+  color: $highlight-color;
+}
+
+.fa-sun::before {
+  color: $highlight-color;
 }

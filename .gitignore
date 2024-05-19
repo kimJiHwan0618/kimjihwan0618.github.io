@@ -28,3 +28,9 @@ codekit-config.json
 .sass-cache
 _asset_bundler_cache
 _site
+
+# backup
+_includes_back
+_layouts_back
+_pages_back
+_sass_back

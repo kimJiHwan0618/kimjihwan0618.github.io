@@ -6,6 +6,24 @@
    Default
    ========================================================================== */
 
+.sidebar::-webkit-scrollbar {
+  width: 9px; /* width of the entire scrollbar */
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: $background-color; /* color of the tracking area */
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: mix(
+    $background-color,
+    $muted-text-color,
+    50%
+  ); /* color of the scroll thumb */
+  border-right: 6px solid $background-color; /* creates padding around scroll thumb */
+  border-top: 10px solid $background-color;
+  border-bottom: 10px solid $background-color;
+}
 .sidebar {
   @include clearfix();
   // @include breakpoint(max-width $large) {
@@ -94,6 +112,9 @@
         .toc__menu {
           overflow-y: auto;
           max-height: calc(100vh - 7em);
+          li {
+            font-size: 1em;
+          }
         }
       }
     }
@@ -102,6 +123,7 @@
   @include breakpoint($x-large) {
     width: $right-sidebar-width;
     margin-right: -1 * $right-sidebar-width;
+    padding-left: 3em;
   }
 }
 
@@ -216,7 +238,7 @@
 
     &:before {
       @supports (pointer-events: none) {
-        content: '';
+        content: "";
         position: fixed;
         top: 0;
         left: 0;
@@ -350,4 +372,3 @@
     margin-right: initial;
   }
 }
-

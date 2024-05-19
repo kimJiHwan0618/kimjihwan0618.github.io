@@ -13,12 +13,31 @@ body {
   padding: 0;
   color: $text-color;
   font-family: $global-font-family;
-  line-height: 1.5;
+  line-height: 1.75;
 
   &.overflow--hidden {
     /* when primary navigation is visible, the content in the background won't scroll */
     overflow: hidden;
   }
+}
+
+body::-webkit-scrollbar {
+  width: 9px; /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: $background-color; /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: mix(
+    $background-color,
+    $muted-text-color,
+    50%
+  ); /* color of the scroll thumb */
+  border-right: 6px solid $background-color; /* creates padding around scroll thumb */
+  border-top: 10px solid $background-color;
+  border-bottom: 10px solid $background-color;
 }
 
 h1,
@@ -34,11 +53,12 @@ h6 {
 }
 
 h1 {
-  margin-top: 0;
+  margin-top: 3em;
   font-size: $h-size-1;
 }
 
 h2 {
+  margin-top: 2.5em;
   font-size: $h-size-2;
 }
 
@@ -65,13 +85,17 @@ small,
 
 p {
   margin-bottom: 1.3em;
+
+  img {
+    display: block;
+    margin: 0 auto;
+  }
 }
 
 u,
 ins {
   text-decoration: none;
   border-bottom: 1px solid $text-color;
-
   a {
     color: inherit;
   }
@@ -111,7 +135,7 @@ blockquote {
   margin: 2em 1em 2em 0;
   padding-left: 1em;
   padding-right: 1em;
-  // font-style: italic;
+  font-style: italic;
   border-left: 0.25em solid $primary-color;
 
   cite {
@@ -127,6 +151,9 @@ blockquote {
 /* links */
 
 a {
+  text-decoration: none;
+  cursor: pointer;
+
   &:focus {
     @extend %tab-focus;
   }
@@ -158,8 +185,7 @@ pre {
 }
 
 pre {
-  overflow-x: auto;
-  /* add scrollbars to wide code blocks*/
+  overflow-x: auto; /* add scrollbars to wide code blocks*/
 }
 
 /* horizontal rule */
@@ -212,14 +238,13 @@ figure {
     transition: $global-transition;
   }
 
-  >a {
+  > a {
     display: block;
   }
 
   &.half {
-
-    >a,
-    >img {
+    > a,
+    > img {
       @include breakpoint($small) {
         width: calc(50% - 0.5em);
       }
@@ -231,9 +256,8 @@ figure {
   }
 
   &.third {
-
-    >a,
-    >img {
+    > a,
+    > img {
       @include breakpoint($small) {
         width: calc(33.3333% - 0.5em);
       }
@@ -250,8 +274,9 @@ figure {
 figcaption {
   margin-bottom: 0.5em;
   color: $muted-text-color;
-  font-family: $caption-font-family;
-  font-size: $type-size-6;
+  font-family: $global-font-family;
+  font-size: $type-size-7;
+  text-align: center;
 
   a {
     -webkit-transition: $global-transition;
@@ -341,3 +366,7 @@ input[type="submit"],
   -webkit-transition: $global-transition;
   transition: $global-transition;
 }
+
+// ol {
+//   margin-bottom: 0;
+// }

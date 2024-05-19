@@ -15,7 +15,7 @@
 minimal_mistakes_skin: "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
-locale: "ko-KR"
+locale: "en-US"
 title: "호도로그"
 title_separator: "|"
 subtitle: "프론트엔드 개발자 블로그"
@@ -105,22 +105,22 @@ analytics:
 author:
   name: "Kim Ji Hwan"
   avatar: "/assets/images/hodolog.jpg"
-  bio: "             "
-  location: "South Korea"
-  email: "wlghks0618@kakao.com"
+  bio:
+  # location: "South Korea"
+  # email: "wlghks0618@kakao.com"
   links:
-    - label: "Email"
-      icon: "fas fa-fw fa-envelope-square"
-      url: "mailto:wlghks0618@kakao.com.com"
+    # - label: "Email"
+    # icon: "fas fa-fw fa-envelope-square"
+    # url: "mailto:wlghks0618@kakao.com.com"
     # - label: "Mypopol Service"
     # icon: "fas fa-fw fa-link"
     # url: "https://admin.mypopol.com"
-    - label: "Coding Test"
-      icon: "fas fa-fw fa-link"
-      url: "https://kimjihwan0618.github.io/coding_test"
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/kimjihwan0618"
+    # - label: "Coding Test"
+    # icon: "fas fa-fw fa-link"
+    # url: "https://kimjihwan0618.github.io/coding_test"
+    # - label: "GitHub"
+    # icon: "fab fa-fw fa-github"
+    # url: "https://github.com/kimjihwan0618"
     # - label: "Twitter"
     #  icon: "fab fa-fw fa-twitter-square"
     #  url: "https://twitter.com/"
@@ -191,6 +191,7 @@ markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 markdown: kramdown
 highlighter: rouge
 lsi: false
+dark_theme_toggle: true
 excerpt_separator: "\n\n"
 incremental: false
 
@@ -212,7 +213,7 @@ sass:
 
 # Outputting
 permalink: /:categories/:title/
-paginate: 5 # amount of posts to show
+paginate: 8 # amount of posts to show
 paginate_path: /page:num/
 # timezone: Asia/Seoul
 
@@ -257,9 +258,9 @@ jekyll-archives:
   layouts:
     category: archive-taxonomy
     tag: archive-taxonomy
-  # permalinks:
-  #   category: /categories/:name/
-  #   tag: /tags/:name/
+  permalinks:
+    category: /categories/:name/
+    tag: /tags/:name/
 
 # HTML Compression
 # - https://jch.penibelst.de/
@@ -276,13 +277,17 @@ defaults:
       type: posts
     values:
       layout: single
-      author_profile: false
-      read_time: true
+      author_profile: true
+      read_time: false
       comments: true
-      share: true
+      share: false
       related: true
       show_date: true
-      toc: true
-      toc_sticky: true
-      toc_label: 목차
+      sidebar_main: true
+      applause_button: true
+
 date_format: "%Y-%m-%d"
+after_footer_scripts:
+  - /assets/js/custom/dark-theme.js
+  - /assets/js/custom/to-top.js
+  - /assets/js/custom/get-multiple-claps.js

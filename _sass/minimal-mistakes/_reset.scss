@@ -17,11 +17,13 @@ html {
   }
 
   @include breakpoint($large) {
-    font-size: 20px;
+    // font-size: 20px;
+    font-size: 18px;
   }
 
   @include breakpoint($x-large) {
-    font-size: 22px;
+    // font-size: 22px;
+    font-size: 18px;
   }
 
   -webkit-text-size-adjust: 100%;
@@ -46,20 +48,6 @@ body {
   background: #000;
 }
 
-.min-width th,
-.min-width td {
-  min-width: 200px;
-}
-
-th,
-td {
-  border-right: 1px solid #b6b6b6;
-  border-left: 1px solid #b6b6b6;
-  border-top: 1px solid #b6b6b6;
-  min-width: 10px;
-  box-sizing: border-box;
-  padding: 8px;
-}
 /* Display HTML5 elements in IE6-9 and FF3 */
 
 article,
@@ -182,22 +170,22 @@ input[type="submit"] {
 label,
 select,
 button,
-input[type="button"],
-input[type="reset"],
-input[type="submit"],
-input[type="radio"],
-input[type="checkbox"] {
+input[type='button'],
+input[type='reset'],
+input[type='submit'],
+input[type='radio'],
+input[type='checkbox'] {
   cursor: pointer; /* improves usability and consistency of cursor style between image-type `input` and others*/
 }
 
-input[type="search"] {
+input[type='search'] {
   /* Appearance in Safari/Chrome*/
   box-sizing: border-box;
   -webkit-appearance: textfield;
 }
 
-input[type="search"]::-webkit-search-decoration,
-input[type="search"]::-webkit-search-cancel-button {
+input[type='search']::-webkit-search-decoration,
+input[type='search']::-webkit-search-cancel-button {
   -webkit-appearance: none; /* inner-padding issues in Chrome OSX, Safari 5*/
 }
 

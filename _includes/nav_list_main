@@ -1,0 +1,114 @@
+<!--전체 글 수를 세기 위한 연산. sum 변수에 전체 글 수 저장-->
+
+{% assign sum = site.posts | size %}
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">{{
+    site.data.ui - text[site.locale].menu_label | default : "Toggle Menu"
+  }}</label>
+  <ul class="nav__items" id="category_tag_menu">
+    <li>
+      <!-- Programming -->
+      <span class="nav__sub-title">Programming</span>
+      <ul>
+        {% for tag in site.tags %} {% if tag[0] == "javascript" %}
+        <li>
+          <a href="/tags/javascript" class="">Javascript ({{ tag[1].size }})</a>
+        </li>
+        {% endif %} {% endfor %}
+      </ul>
+      <ul>
+        {% for tag in site.tags %} {% if tag[0] == "java" %}
+        <li>
+          <a href="/tags/java" class="">Java ({{ tag[1].size }})</a>
+        </li>
+        {% endif %} {% endfor %}
+      </ul>
+      <ul>
+        {% for tag in site.tags %} {% if tag[0] == "regex" %}
+        <li>
+          <a href="/tags/regex" class="">Regex ({{ tag[1].size }})</a>
+        </li>
+        {% endif %} {% endfor %}
+      </ul>
+      <!-- Programming -->
+      <!-- Web Development -->
+      <span class="nav__sub-title">Web Development</span>
+      <ul>
+        {% for tag in site.tags %} {% if tag[0] == "react" %}
+        <li>
+          <a href="/tags/react" class="">React ({{ tag[1].size }})</a>
+        </li>
+        {% endif %} {% endfor %}
+      </ul>
+      <!-- Web Development -->
+      <!-- Development Tools -->
+      <span class="nav__sub-title">Development Tools</span>
+      <ul>
+        {% for tag in site.tags %} {% if tag[0] == "npm" %}
+        <li>
+          <a href="/tags/npm" class="">NPM ({{ tag[1].size }})</a>
+        </li>
+        {% endif %} {% endfor %}
+      </ul>
+      <ul>
+        {% for tag in site.tags %} {% if tag[0] == "grafana" %}
+        <li>
+          <a href="/tags/grafana" class="">Grafana ({{ tag[1].size }})</a>
+        </li>
+        {% endif %} {% endfor %}
+      </ul>
+      <!-- Development Tools -->
+      <!-- DB -->
+      <span class="nav__sub-title">DB</span>
+      <ul>
+        {% for tag in site.tags %} {% if tag[0] == "mariadb" %}
+        <li>
+          <a href="/tags/mariadb" class="">Maria DB ({{ tag[1].size }})</a>
+        </li>
+        {% endif %} {% endfor %}
+      </ul>
+      <!-- DB -->
+      <!-- OS -->
+      <span class="nav__sub-title">OS</span>
+      <ul>
+        {% for tag in site.tags %} {% if tag[0] == "windows" %}
+        <li>
+          <a href="/tags/windows" class="">Windows ({{ tag[1].size }})</a>
+        </li>
+        {% endif %} {% endfor %}
+      </ul>
+      <ul>
+        {% for tag in site.tags %} {% if tag[0] == "linux" %}
+        <li>
+          <a href="/tags/linux" class="">Linux ({{ tag[1].size }})</a>
+        </li>
+        {% endif %} {% endfor %}
+      </ul>
+      <!-- OS -->
+      <!-- GitHub -->
+      <span class="nav__sub-title">GitHub</span>
+      <ul>
+        {% for tag in site.tags %} {% if tag[0] == "jekyll" %}
+        <li>
+          <a href="/tags/jekyll" class="">Jekyll ({{ tag[1].size }})</a>
+        </li>
+        {% endif %} {% endfor %}
+      </ul>
+      <!-- GitHub -->
+      <!-- <ul class="visitor-count">
+        <a class="total-visitors">
+          <p class="total-visitors__title">Total Visitors</p>
+          <p class="total-visitors__count"></p>
+        </a>
+        <a class="day-visitors">
+          Today : <span class="day-visitors__today-count"></span>
+        </a>
+        <a class="day-visitors">
+          Yesterday : <span class="day-visitors__yesterday-count"></span>
+        </a>
+      </ul> -->
+    </li>
+  </ul>
+</nav>
