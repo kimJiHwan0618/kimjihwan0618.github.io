@@ -24,7 +24,6 @@ const toDark = () => {
 const currentTheme = () => localStorage.getItem("theme");
 
 const setDarkMode = (isDark) => {
-  console.log("ㅎㅇㅎㅇ");
   if (isDark) {
     toLight();
   } else {
@@ -33,7 +32,6 @@ const setDarkMode = (isDark) => {
 };
 
 if (darkTheme) {
-  console.log("ㅇㅇ?");
   let isDarkMode = false;
   if (currentTheme() === "dark") {
     isDarkMode = true;
